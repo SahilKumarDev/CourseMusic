@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Link from "next/link";
 import courseData from "../data/music_course.json";
@@ -13,13 +13,13 @@ interface Course {
   price: number;
   instructor: string;
   isFeatured: boolean;
+  image: string;
 }
 
 const FeaturedCourses = () => {
   const FeaturedCourses = courseData.courses.filter(
     (course: Course) => course.isFeatured
   );
-  // const featuredCourses = courseData.courses.filter((course:Course) => course.isFeatured)
 
   return (
     <div className="py-12 bg-gray-900">
@@ -35,14 +35,16 @@ const FeaturedCourses = () => {
             {FeaturedCourses.map((course: Course) => (
               <div key={course.id} className="flex justify-center">
                 <BackgroundGradient className="flex flex-col rounded-[22px] bg-white dark:bg-zinc-900 overflow-hidden h-full max-w-sm">
+                  <div className="m-3">
+                    <Image
+                      src={course.image}
+                      alt="jordans"
+                      height="400"
+                      width="400"
+                      className="object-contain rounded-xl"
+                    />
+                  </div>
                   <div className="p-4 sm:p-6 flex flex-col items-center text-center flex-grow">
-                  {/* <Image
-                    src={`image`}
-                    alt="jordans"
-                    height="400"
-                    width="400"
-                    className="object-contain"
-                  /> */}
                     <p className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
                       {course.title}
                     </p>
