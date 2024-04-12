@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+// import favicon from "./favicon.png"
 
-// Compnents
+// NavBar Compnents
 import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,12 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
-        {/* Navbar */}
         <div className="relative w-full flex items-center justify-center">
-        <Navbar/>
+          <Navbar />
         </div>
 
-        {children}</body>
+        {children}
+      </body>
     </html>
   );
 }
